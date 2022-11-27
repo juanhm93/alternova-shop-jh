@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.Product {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.image-products {
+  object-fit: contain;
+  max-height: 150px;
+}
