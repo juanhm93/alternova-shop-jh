@@ -11,7 +11,7 @@ const Product = ({product, addToCart}) => {
 
 
   return (
-   <div className="Product card" style={{width: '18rem'}}>
+   <div className="Product card mx-auto" style={{width: '18rem'}}>
     <div className='image'>
     <img src={PICTURE} className="card-img-top image-products" alt="image products" />
 

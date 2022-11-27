@@ -1,12 +1,19 @@
 import React from 'react'
 import Order from './Order'
 
-const ShoppingCart = ({orders}) => {
+const ShoppingCart = ({orders, createOrder}) => {
   const totalPrice = () => {
     return orders.reduce((accumulator, currentValue) => {
      return accumulator + (currentValue.quantity * currentValue.unit_price)
     },0)
   }
+
+  const handleClickCreate = () => {
+    const totalOrderPrice = totalPrice()
+    console.log("totalOrderPrice",totalOrderPrice)
+    createOrder(totalOrderPrice)
+  }
+
   return (
    <div className="ShoppingCart card">
    <div className="card-header">
@@ -32,7 +39,7 @@ const ShoppingCart = ({orders}) => {
      </table>
      <div className='d-flex justify-content-between align-items-center mt-5'>
      <p><b>Total Order Price:</b> {totalPrice()}$</p>
-     <button className="btn btn-primary">CREATE ORDER</button>
+     <button className="btn btn-primary" onClick={handleClickCreate}>CREATE ORDER</button>
      </div>
     {/* </div> */}
    </div>

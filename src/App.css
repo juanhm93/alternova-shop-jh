@@ -23,3 +23,12 @@
   object-fit: contain;
   max-height: 150px;
 }
+
+@media (max-width: 600px) {
+  .ShoppingCart .card-body {
+    min-height: 22.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
