@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
 import ShoppingCart from './components/ShoppingCart';
+import ToastSoldOut from './components/ToastSoldOut';
 import './App.css';
 import productsJSON from './static/productsJSON.json'
 
@@ -9,14 +10,23 @@ import productsJSON from './static/productsJSON.json'
 function App() {
   const [products, setProducts] = useState(productsJSON.products)
   const [orders, setOrders] = useState([])
+  const [show, setShow] = useState(false)
+
+  const closeToast = () => {
+    setShow(false)
+  } 
 
   const addToCart = (newProduct) => {
     console.log("addToCart")
-   
+    console.log(newProduct)
+
     if(newProduct.stock === 0){
       console.log("no se puede agregar")
+      setShow(true)
       return false
     }
+
+    console.log("seguimos!!")
     setProducts(products.map(product => {
       if(product.name === newProduct.name){
         return {
@@ -40,7 +50,7 @@ function App() {
           return order
         }
       }))
-       
+      
     }else {
       const {  stock, ...pro} = newProduct
       pro.quantity = 1
@@ -49,9 +59,8 @@ function App() {
           pro
         ])
     }
-    
-
   }
+
 
   return (
     <div className="App">
@@ -65,8 +74,8 @@ function App() {
             <ShoppingCart orders={orders} />
           </div>
         </div>
-    </div>
-      
+      </div>
+      <ToastSoldOut closeToast={closeToast} show={show} />
     </div>
   );
 }
