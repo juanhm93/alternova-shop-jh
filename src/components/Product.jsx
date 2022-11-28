@@ -2,10 +2,9 @@ import React from 'react'
 
 
 const Product = ({product, addToCart}) => {
- const PICTURE = "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-deep-purple-220907_inline.jpg.large.jpg"  
+   
 
  const handleClick = (product) => {
-  console.log("handleClick")
   addToCart(product)
  }
 
@@ -13,7 +12,7 @@ const Product = ({product, addToCart}) => {
   return (
    <div className="Product card mx-auto" style={{width: '18rem'}}>
     <div className='image'>
-    <img src={PICTURE} className="card-img-top image-products" alt="image products" />
+    <img src={product.image} className="card-img-top image-products" alt="image products" />
 
     {
      product.stock === 0 && (
