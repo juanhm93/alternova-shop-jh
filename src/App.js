@@ -1,4 +1,3 @@
-// import fs from 'fs';
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
@@ -8,8 +7,6 @@ import './App.css';
 import productsJSON from './static/productsJSON.json';
 
 
-
-
 function App() {
   const [products, setProducts] = useState(productsJSON.products)
   const [orders, setOrders] = useState([])
@@ -17,6 +14,10 @@ function App() {
   const [categories, setCategories] = useState([])
   const [selectedCategory, setSelectedCategory] = useState('')
   const [search, setSearch] = useState('')
+  const [finishOrders, setFinishOrders] = useState([])
+  const [message, setMessage] = useState({title: '', message: ''})
+  
+  // const [countOrder, setCountOrder] = useState(0)
 
   useEffect(() => {
     const getCategories = products.map(product => product.type)
@@ -35,6 +36,10 @@ function App() {
 
     if(newProduct.stock === 0){
       console.log("no se puede agregar")
+      setMessage({
+        title: 'Sold Out',
+        message: 'You can not add more products of this type, we do not have in stock'
+      })
       setShow(true)
       return false
     }
@@ -92,38 +97,60 @@ function App() {
   })
 
   const handleCreateOrder = (totalOrderPrice) => {
-    // const itemsOrder = orders.map(order => {
-    //   return {
-    //     ...order,
-    //     "total_price": order.quantity * order.unit_price
-    //   }
-    // })
-    const createOrder = {
-      "total_order_price": totalOrderPrice,
-      "order": orders.map(order => {
-        return {
-          ...order,
-          "total_price": order.quantity * order.unit_price
-        }
+    // setCountOrder(countOrder + 1)
+    if(orders.length === 0){
+      setMessage({
+        title: 'Empty Cart',
+        message: 'add products to the cart to create your order'
       })
+      setShow(true)
+      return false
     }
+    const createOrder = {
+       "total_order_price": totalOrderPrice,
+       "order": orders.map(order => {
+         return {
+           ...order,
+           "total_price": order.quantity * order.unit_price
+         }
+       })
+     }
+     setFinishOrders(finish => [...finish, createOrder])
+     generateJson(createOrder);
+     setOrders([])
+  
+
     console.log(createOrder)
+  }
+
+  const generateJson = (data) => {
+    const stringData = `data:text/json;chatset=utf-8,${encodeURIComponent(
+      JSON.stringify(data))}`;
+      const now = new Date()
+      const date = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`
+      const time = `${now.getHours()}_${now.getMinutes()}_${now.getSeconds()}`
+      const link = document.createElement("a");
+      link.href = stringData;
+      link.download = `order-${date}_${time}.json`;
+  
+      link.click();
+    
   }
 
   return (
     <div className="App">
       <Header categories={categories} changeSelected={changeSelected}  handleSearch={handleSearch} />
       <div className='container-fluid'>
-        <div className="row pt-2">
-          <div className="ProductList col-sm-6">
+        <div className="row d-flex flex-column-reverse flex-sm-row pt-2">
+          <div className="ProductList col-12 col-sm-5 col-lg-7 col-xl-6 ">
             <ProductList products={filterProducts} addToCart={addToCart} />
           </div>
-          <div className="col-sm-6">
+          <div className="col-12 col-sm-7 col-lg-5 col-xl-6 ">
             <ShoppingCart orders={orders} createOrder={handleCreateOrder} />
           </div>
         </div>
       </div>
-      <ToastSoldOut closeToast={closeToast} show={show} />
+      <ToastSoldOut closeToast={closeToast} show={show} message={message} />
     </div>
   );
 }

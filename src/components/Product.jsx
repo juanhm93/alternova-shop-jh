@@ -25,11 +25,13 @@ const Product = ({product, addToCart}) => {
     </div>
    
     <div className="card-body">
-      <h6 className="card-title">
-      <span className={`badge bg-${product.stock > 0 ? "primary" : "danger"}` }>{product.stock} </span>
+      <h6 className="card-title d-flex justify-content-between align-items-center">
+      <span className={`badge bg-${product.stock > 0 ? "dark" : "danger"}` } > {product.stock} </span>
        {" " + product.name }  
       </h6>
-      <button className="btn btn-primary" onClick={() => handleClick(product)} >Add to cart</button>
+      <div className='d-flex justify-content-end'>
+      <button className="btn btn-dark" onClick={() => handleClick(product)} >Add to cart</button>
+      </div>
     </div>
    </div>
   )

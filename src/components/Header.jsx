@@ -5,7 +5,7 @@ const Header = ({categories,changeSelected, handleSearch}) => {
     <div>
      <nav className="navbar bg-light">
     <div className="container-fluid">
-      <div className="navbar-brand mx-auto" >
+      <div className="navbar-brand mx-auto" style={{color: '#e71e6e'}} >
        Alternova shop
       </div>
       <form className="d-flex" role="search">

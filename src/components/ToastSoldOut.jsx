@@ -2,15 +2,15 @@ import React from 'react'
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 
-const ToastSoldOut = ({closeToast,show}) => {
+const ToastSoldOut = ({closeToast,show, message}) => {
   return (
     <ToastContainer className="p-3" position='bottom-end'>
     <Toast onClose={closeToast} show={show} bg='warning' delay={3000} autohide>
     <Toast.Header>
-      <strong className="me-auto">Sold Out</strong>
+      <strong className="me-auto">{message.title}</strong>
       <small>11 mins ago</small>
     </Toast.Header>
-    <Toast.Body>You can not add more products of this type, we do not have in stock</Toast.Body>
+    <Toast.Body>{message.message}</Toast.Body>
   </Toast>
   </ToastContainer>
   )
