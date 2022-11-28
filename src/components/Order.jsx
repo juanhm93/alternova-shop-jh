@@ -7,18 +7,6 @@ const Order = ({order}) => {
       <td>{order.quantity}</td>
       <td> {order.unit_price}$</td>
       <td> {order.unit_price * order.quantity}$</td>
-     {/* <div className='col-sm-4'>
-      
-       </div>
-       <div className='col-sm-2'>
-        
-       </div>
-       <div className='col-sm-3'>
-        
-       </div>
-       <div className='col-sm-3'>
-        
-       </div> */}
     </tr>
 
   )

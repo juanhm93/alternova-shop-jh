@@ -8,19 +8,17 @@ const Product = ({product, addToCart}) => {
   addToCart(product)
  }
 
-
   return (
    <div className="Product card mx-auto" style={{width: '18rem'}}>
     <div className='image'>
-    <img src={product.image} className="card-img-top image-products" alt="image products" />
-
-    {
-     product.stock === 0 && (
-      <div className="card-img-overlay"> 
-       <span className="badge bg-danger">Sold out </span>
-      </div>
-     )
-    }
+      <img src={product.image} className="card-img-top image-products" alt={product.name} />
+      {
+        product.stock === 0 && (
+          <div className="card-img-overlay"> 
+          <span className="badge bg-danger">Sold out </span>
+          </div>
+        )
+      }
     </div>
    
     <div className="card-body">

@@ -16,8 +16,7 @@ function App() {
   const [search, setSearch] = useState('')
   const [finishOrders, setFinishOrders] = useState([])
   const [message, setMessage] = useState({title: '', message: '', type: ''})
-  
-  // const [countOrder, setCountOrder] = useState(0)
+
 
   useEffect(() => {
     const getCategories = products.map(product => product.type)
