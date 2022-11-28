@@ -10,7 +10,6 @@ const ShoppingCart = ({orders, createOrder}) => {
 
   const handleClickCreate = () => {
     const totalOrderPrice = totalPrice()
-    console.log("totalOrderPrice",totalOrderPrice)
     createOrder(totalOrderPrice)
   }
 
@@ -39,7 +38,7 @@ const ShoppingCart = ({orders, createOrder}) => {
      </table>
      <div className='d-flex justify-content-between align-items-center mt-5'>
      <p><b>Total Order Price:</b> {totalPrice()}$</p>
-     <button className="btn btn-primary" onClick={handleClickCreate}>CREATE ORDER</button>
+     <button className="btn btn-dark" onClick={handleClickCreate}>CREATE ORDER</button>
      </div>
     {/* </div> */}
    </div>

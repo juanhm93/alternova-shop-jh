@@ -4,55 +4,64 @@
      "name": "iPhone 14 Pro Ma",
      "unit_price": 5000,
      "stock": 5,
-     "type": "technology"
+     "type": "technology",
+     "image": "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-deep-purple-220907_inline.jpg.large.jpg"
    },
    {
      "name": "Timon Racing Carrera",
      "unit_price": 8000,
      "stock": 2,
-     "type": "technology"
+     "type": "technology",
+     "image": "https://http2.mlstatic.com/D_NQ_NP_911635-MCO44820530770_022021-O.jpg"
    },
    {
      "name": "Control joystick inalámbrico",
      "unit_price": 1000,
      "stock": 1,
-     "type": "technology"
+     "type": "technology",
+     "image": "https://http2.mlstatic.com/D_NQ_NP_2X_749977-MLA44330907675_122020-V.webp"
    },
    {
      "name": "Bicicicleta Roadmaster",
      "unit_price": 1800,
      "stock": 1,
-     "type": "sport"
+     "type": "sport",
+     "image": "https://falabella.scene7.com/is/image/FalabellaCO/11785325_1?wid=1500&hei=1500&qlt=70"
    },
    {
      "name": "Bicicleta Todo Terreno",
      "unit_price": 200,
      "stock": 0,
-     "type": "sport"
+     "type": "sport",
+     "image": "https://falabella.scene7.com/is/image/FalabellaCO/14632566_1?wid=800&hei=800&qlt=70"
    },
    {
      "name": "Balon De Futbol",
      "unit_price": 120,
      "stock": 6,
-     "type": "sport"
+     "type": "sport",
+     "image": "https://golty.com.co/wp-content/uploads/2022/07/Balon-Origen-No5-16.png"
    },
    {
      "name": "Ducha Electrica",
      "unit_price": 120,
      "stock": 8,
-     "type": "building"
+     "type": "building",
+     "image": "https://http2.mlstatic.com/D_NQ_NP_832672-MCO29910122456_042019-O.jpg"
    },
    {
      "name": "Gabinete De Baño",
      "unit_price": 650,
      "stock": 10,
-     "type": "building"
+     "type": "building",
+     "image": "https://cdn.shopify.com/s/files/1/0445/6716/7139/products/Gabinete-Bano-Miro-Rovere_GLR7515-4_800x.jpg?v=1636340495"
    },
    {
      "name": "Mueble Sanitario",
      "unit_price": 900,
      "stock": 2,
-     "type": "building"
+     "type": "building",
+     "image": "https://http2.mlstatic.com/D_NQ_NP_876077-MCO48691852924_122021-O.jpg"
    } 
  ]
 }

@@ -6,7 +6,7 @@
   margin-top: 12px;
 }
 .ShoppingCart .card-body {
-  min-height: 72.5vh;
+  min-height: 76vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,7 +19,7 @@
   position: relative;
 }
 
-.image-products {
+.Product .image .image-products {
   object-fit: contain;
   max-height: 150px;
 }
